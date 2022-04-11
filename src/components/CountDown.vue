@@ -21,12 +21,7 @@
         </tr>
         <tr>
           <td colspan="6">
-            <img
-              class="bus"
-              :style="`margin-left: ${currentPos}px; transform: rotate(${busRotate}deg);`"
-              alt="Bus"
-              src="../assets/bus.png"
-            />
+            <BusImage :currentPos="currentPos" :maxPos="maxPos" />
             <img class="road" alt="Road" src="../assets/road.jpg" />
           </td>
         </tr>
@@ -36,8 +31,13 @@
 </template>
 
 <script>
+import BusImage from "./BusImage.vue";
+
 export default {
   name: "CountDown",
+  components: {
+    BusImage,
+  },
   props: {
     startbus: {
       type: Number,
@@ -56,7 +56,7 @@ export default {
     return {
       currentTime: null,
       currentPos: 0,
-      busRotate: 3,
+      maxPos: 600,
     };
   },
   mounted() {
@@ -84,18 +84,16 @@ export default {
       return value;
     },
     countdown() {
-      const roadLengh = 600;
       this.currentTime = Date.parse(this.deadline) - Date.parse(new Date());
       this.currentPos =
         this.currentTime > this.startbus
           ? 0
           : this.currentTime <= 0 || !this.currentTime
-          ? roadLengh
-          : roadLengh -
-            Math.floor((this.currentTime / this.startbus) * roadLengh);
+          ? this.maxPos
+          : this.maxPos -
+            Math.floor((this.currentTime / this.startbus) * this.maxPos);
       if (this.currentTime > 0) {
         setTimeout(this.countdown, this.speed);
-        this.busRotate = this.busRotate != 3 ? 3 : -3;
       } else {
         this.currentTime = null;
         this.currentPos = 0;
