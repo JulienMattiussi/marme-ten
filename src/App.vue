@@ -1,17 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <img class="back" alt="Vosges" src="./assets/back.jpeg" />
+  <div class="content">
+    <img alt="Marmelab logo" src="./assets/logo-green.png" />
+    <TitleMessage msg="En mai, on fait ce qui nous plait !" />
+    <CountDown deadline="2022-05-10T22:00:00.000Z" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TitleMessage from "./components/TitleMessage.vue";
+import CountDown from "./components/CountDown.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    TitleMessage,
+    CountDown,
+  },
+};
 </script>
 
 <style>
@@ -21,6 +27,17 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  padding-top: 60px;
+}
+.back {
+  width: calc(100% - 60px);
+  margin: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: contrast(40%) blur(5px) brightness(1.5);
+}
+.content {
+  position: relative;
 }
 </style>
