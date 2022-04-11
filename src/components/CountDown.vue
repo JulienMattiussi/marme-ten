@@ -4,16 +4,26 @@
       <h3>Temps restant avant la fiesta :</h3>
       <table>
         <tr class="numbers">
+          <td class="table-margin"></td>
           <td class="days">{{ days }}</td>
           <td>{{ hours }}</td>
           <td>{{ formatTime(minutes) }}</td>
           <td>{{ formatTime(seconds) }}</td>
+          <td class="table-margin"></td>
         </tr>
         <tr class="labels">
+          <td class="table-margin"></td>
           <td>jour{{ days > 1 ? "s" : "" }}</td>
           <td>heure{{ hours > 1 ? "s" : "" }}</td>
           <td>minute{{ minutes > 1 ? "s" : "" }}</td>
           <td>seconde{{ seconds > 1 ? "s" : "" }}</td>
+          <td class="table-margin"></td>
+        </tr>
+        <tr>
+          <td colspan="6">
+            <img class="bus" alt="Bus" src="../assets/bus.png" />
+            <img class="road" alt="Road" src="../assets/road.jpg" />
+          </td>
         </tr>
       </table>
     </div>
@@ -84,7 +94,7 @@ export default {
 .countdown {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 700px;
 }
 .numbers {
   font-size: 60px;
@@ -99,5 +109,18 @@ export default {
   color: brown;
   vertical-align: bottom;
   line-height: 100px;
+}
+img.road {
+  margin-top: 50px;
+  height: 50px;
+  width: 100%;
+}
+img.bus {
+  position: absolute;
+  margin-top: 50px;
+  height: 50px;
+}
+.table-margin {
+  width: 100px;
 }
 </style>
