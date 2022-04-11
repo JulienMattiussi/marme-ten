@@ -21,7 +21,12 @@
         </tr>
         <tr>
           <td colspan="6">
-            <img class="bus" alt="Bus" src="../assets/bus.png" />
+            <img
+              class="bus"
+              :style="`margin-left: ${currentPos}px; transform: rotate(${busRotate}deg);`"
+              alt="Bus"
+              src="../assets/bus.png"
+            />
             <img class="road" alt="Road" src="../assets/road.jpg" />
           </td>
         </tr>
@@ -34,6 +39,10 @@
 export default {
   name: "CountDown",
   props: {
+    startbus: {
+      type: Number,
+      default: 2600000000,
+    },
     deadline: {
       type: String,
       required: true,
@@ -46,6 +55,8 @@ export default {
   data: function () {
     return {
       currentTime: null,
+      currentPos: 0,
+      busRotate: 3,
     };
   },
   mounted() {
@@ -73,11 +84,21 @@ export default {
       return value;
     },
     countdown() {
+      const roadLengh = 600;
       this.currentTime = Date.parse(this.deadline) - Date.parse(new Date());
+      this.currentPos =
+        this.currentTime > this.startbus
+          ? 0
+          : this.currentTime <= 0 || !this.currentTime
+          ? roadLengh
+          : roadLengh -
+            Math.floor((this.currentTime / this.startbus) * roadLengh);
       if (this.currentTime > 0) {
         setTimeout(this.countdown, this.speed);
+        this.busRotate = this.busRotate != 3 ? 3 : -3;
       } else {
         this.currentTime = null;
+        this.currentPos = 0;
       }
     },
   },
