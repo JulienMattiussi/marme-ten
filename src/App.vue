@@ -1,5 +1,5 @@
 <template>
-  <img class="back" alt="Vosges" src="./assets/back.jpeg" />
+  <img class="back" alt="Vosges" src="./assets/back-light.jpeg" />
   <div class="content">
     <img alt="Marmelab logo" src="./assets/logo-green.png" />
     <TitleMessage msg="En mai, on fait ce qui nous plait !" />
