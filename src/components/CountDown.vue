@@ -5,10 +5,14 @@
       <table>
         <tr class="numbers">
           <td class="table-margin"></td>
-          <td class="days">{{ days }}</td>
-          <td>{{ hours }}</td>
-          <td>{{ formatTime(minutes) }}</td>
-          <td>{{ formatTime(seconds) }}</td>
+          <td :class="days === 0 ? 'reached' : ''" class="days">{{ days }}</td>
+          <td :class="hours === 0 ? 'reached' : ''">{{ hours }}</td>
+          <td :class="minutes === 0 ? 'reached' : ''">
+            {{ formatTime(minutes) }}
+          </td>
+          <td :class="seconds === 0 ? 'reached' : ''">
+            {{ formatTime(seconds) }}
+          </td>
           <td class="table-margin"></td>
         </tr>
         <tr class="labels">
@@ -21,8 +25,9 @@
         </tr>
         <tr>
           <td colspan="6">
-            <BusImage :currentPos="currentPos" :maxPos="maxPos" />
+            <BusImage :currentPos="currentPos" />
             <img class="road" alt="Road" src="../assets/road.jpg" />
+            <img class="mountain" alt="Mountain" src="../assets/mountain.png" />
           </td>
         </tr>
       </table>
@@ -123,6 +128,10 @@ export default {
   vertical-align: bottom;
 }
 
+.reached {
+  color: green !important;
+}
+
 @media (max-width: 1250px) {
   .numbers {
     font-size: 45px;
@@ -144,6 +153,13 @@ img.road {
   margin-top: 50px;
   height: 50px;
   width: 100%;
+}
+
+img.mountain {
+  height: 130px;
+  margin-top: -5px;
+  margin-left: -80px;
+  position: absolute;
 }
 
 @media (max-width: 1250px) {
