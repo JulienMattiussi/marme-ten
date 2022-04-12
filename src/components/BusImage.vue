@@ -1,17 +1,9 @@
 <template>
   <div class="bus" :style="`margin-left: ${currentPos}px;`">
-    <img
-      :style="`transform: rotate(${busRotate}deg);`"
-      alt="Bus"
-      src="../assets/bus.png"
-    />
+    <img alt="Bus" src="../assets/bus.png" />
     <div class="people">
-      <img
-        class="avatar"
-        :style="`transform: rotate(${busRotate}deg);`"
-        alt="Avatar"
-        :src="getImgUrl(avatar)"
-      /><span>{{ message }}</span>
+      <img class="avatar" alt="Avatar" :src="getImgUrl(avatar)" />
+      <span>{{ message }}</span>
     </div>
   </div>
 </template>
@@ -20,7 +12,7 @@
 const avatars = [
   { image: "matthieu.jpg", message: "C'est quand qu'on arrive ?!" },
   { image: "alexandre.png", message: "Je suis malade en voiture ;(" },
-  { image: "anthony.png", message: "Je veux faire pipi !!" },
+  { image: "anthony.png", message: "Je veux aller faire pipi !!" },
   { image: "arnaud.png", message: "Y a Matthieu qui m'embête." },
   { image: "florian.jpg", message: "Zzzzzzz" },
   { image: "francois.jpg", message: "Un peu de calme derrière" },
@@ -44,15 +36,6 @@ export default {
       type: Number,
       required: true,
     },
-    maxPos: {
-      type: Number,
-      required: true,
-    },
-    moveSpeed: {
-      type: Number,
-      default: 300,
-    },
-
     changeSpeed: {
       type: Number,
       default: 3000,
@@ -66,19 +49,12 @@ export default {
     };
   },
   mounted() {
-    setTimeout(this.moving, 1);
     setTimeout(this.changing, 1);
   },
   methods: {
     getImgUrl(img) {
       var getImage = require.context("../assets/avatars", false, /\.*$/);
       return getImage("./" + img);
-    },
-    moving() {
-      this.busRotate = this.busRotate != 3 ? 3 : -3;
-      if (this.currentPos < this.maxPos) {
-        setTimeout(this.moving, this.moveSpeed);
-      }
     },
     changing() {
       const choice = getRandomInt(avatars.length);
@@ -100,6 +76,27 @@ export default {
 
 .bus > img {
   width: 100%;
+  animation-iteration-count: infinite;
+  animation-duration: 0.5s;
+  animation-name: oscillating;
+}
+
+@keyframes oscillating {
+  0% {
+    transform: rotate(3deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(3deg);
+  }
 }
 
 .bus > .people {
@@ -122,6 +119,10 @@ export default {
   align-items: center;
 }
 
+.people > span {
+  min-width: 55%;
+}
+
 .people::before {
   content: "\A";
   border-style: solid;
@@ -137,5 +138,8 @@ export default {
   margin-bottom: -30px;
   border-radius: 50px;
   clip-path: polygon(100% 0%, 100% 70%, 0% 70%, 0% 0%);
+  animation-iteration-count: infinite;
+  animation-duration: 0.5s;
+  animation-name: oscillating;
 }
 </style>
