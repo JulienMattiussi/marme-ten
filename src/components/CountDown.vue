@@ -6,11 +6,21 @@
         <tr class="numbers">
           <td class="table-margin"></td>
           <td :class="days === 0 ? 'reached' : ''" class="days">{{ days }}</td>
-          <td :class="hours === 0 ? 'reached' : ''">{{ hours }}</td>
-          <td :class="minutes === 0 ? 'reached' : ''">
+          <td :class="days === 0 && hours === 0 ? 'reached' : ''">
+            {{ hours }}
+          </td>
+          <td
+            :class="days === 0 && hours === 0 && minutes === 0 ? 'reached' : ''"
+          >
             {{ formatTime(minutes) }}
           </td>
-          <td :class="seconds === 0 ? 'reached' : ''">
+          <td
+            :class="
+              days === 0 && hours === 0 && minutes === 0 && seconds === 0
+                ? 'reached'
+                : ''
+            "
+          >
             {{ formatTime(seconds) }}
           </td>
           <td class="table-margin"></td>
