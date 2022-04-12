@@ -155,6 +155,13 @@ img.road {
   width: 100%;
 }
 
+@media (max-width: 1250px) {
+  img.road {
+    margin-left: -10px;
+    width: calc(100% + 20px);
+  }
+}
+
 img.mountain {
   height: 130px;
   margin-top: -5px;
@@ -163,9 +170,11 @@ img.mountain {
 }
 
 @media (max-width: 1250px) {
-  img.road {
-    margin-left: -10px;
-    width: calc(100% + 20px);
+  img.mountain {
+    right: 0;
+    margin-top: -110px;
+    margin-left: unset;
+    margin-right: -50px;
   }
 }
 
