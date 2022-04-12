@@ -110,36 +110,56 @@ export default {
   width: 100%;
   margin: 40px 0 0;
 }
+
 .countdown {
   display: flex;
   flex-direction: column;
   width: 700px;
 }
+
 .numbers {
   font-size: 60px;
   color: red;
   vertical-align: bottom;
 }
+
+@media (max-width: 1250px) {
+  .numbers {
+    font-size: 45px;
+  }
+}
+
 .labels {
   font-size: 20px;
 }
+
 .days {
   font-size: 100px;
   color: brown;
   vertical-align: bottom;
   line-height: 100px;
 }
+
 img.road {
   margin-top: 50px;
   height: 50px;
   width: 100%;
 }
-img.bus {
-  position: absolute;
-  margin-top: 50px;
-  height: 50px;
+
+@media (max-width: 1250px) {
+  img.road {
+    margin-left: -10px;
+    width: calc(100% + 20px);
+  }
 }
+
 .table-margin {
   width: 100px;
+}
+
+@media (max-width: 1250px) {
+  .table-margin {
+    width: 0px;
+  }
 }
 </style>

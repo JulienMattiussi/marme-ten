@@ -37,6 +37,15 @@ export default {
   left: 0;
   filter: contrast(40%) blur(5px) brightness(1.5);
 }
+
+@media (max-width: 1250px) {
+  .back {
+    margin: -10px;
+    height: calc(100% + 20px);
+    width: unset;
+  }
+}
+
 .content {
   position: relative;
 }
