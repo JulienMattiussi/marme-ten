@@ -31,7 +31,7 @@ function showLe(arg) {
     const newObject = Object.assign({}, arg);
     Object.keys(newObject).forEach((key) => {
       if (typeof newObject[key] === "string") {
-        newObject[key] = newObject[key].replace("tu", le + "tu");
+        newObject[key] = newObject[key].replace(regexCapital, `${le}$&`);
       }
     });
     return newObject;
