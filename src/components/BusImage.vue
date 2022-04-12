@@ -19,8 +19,8 @@ const avatars = [
   { image: "gildas.jpg", message: "J'ai des crampes." },
   { image: "guillaume.png", message: "C'est trop long." },
   { image: "jeremie.jpg", message: "Je revends mon sandwich." },
-  { image: "jibe.png", message: "On va ou ?" },
-  { image: "julio.jpg", message: "Quelqu'un à de quoi manger ?" },
+  { image: "jibe.png", message: "On va où ?" },
+  { image: "julio.jpg", message: "Quelqu'un a de quoi manger ?" },
   { image: "karen.jpg", message: "J'ai trop trop hâte <3 !!" },
   { image: "caroline.png", message: "zu Hilfe !!" },
 ];
