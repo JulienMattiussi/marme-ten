@@ -30,6 +30,7 @@ const avatars = [
   { image: "jibe.png", message: "On va ou ?" },
   { image: "julio.jpg", message: "Quelqu'un à de quoi manger ?" },
   { image: "karen.jpg", message: "J'ai trop trop hâte <3 !!" },
+  { image: "caroline.png", message: "zu Hilfe !!" },
 ];
 
 const getRandomInt = (max) => {
