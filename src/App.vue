@@ -11,6 +11,25 @@
 import TitleMessage from "./components/TitleMessage.vue";
 import CountDown from "./components/CountDown.vue";
 
+function showGros() {
+  //var date = new Date(),
+  //str = date.toUTCString();
+  return " gros";
+}
+
+var orig = console.log;
+
+console.log = function () {
+  var msgs = [];
+
+  while (arguments.length) {
+    msgs.push([].shift.call(arguments) + showGros());
+  }
+
+  orig.apply(console, msgs);
+};
+
+//console.log("TUTU");
 export default {
   name: "App",
   components: {
