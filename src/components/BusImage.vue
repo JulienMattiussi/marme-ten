@@ -11,25 +11,25 @@
         :style="`transform: rotate(${busRotate}deg);`"
         alt="Avatar"
         :src="getImgUrl(avatar)"
-      /><span>C'est quand qu'on arrive ?!</span>
+      /><span>{{ message }}</span>
     </div>
   </div>
 </template>
 
 <script>
 const avatars = [
-  "matthieu.jpg",
-  "alexandre.png",
-  "anthony.png",
-  "arnaud.png",
-  "florian.jpg",
-  "francois.jpg",
-  "gildas.jpg",
-  "guillaume.png",
-  "jeremie.jpg",
-  "jibe.png",
-  "julio.jpg",
-  "karen.jpg",
+  { image: "matthieu.jpg", message: "C'est quand qu'on arrive ?!" },
+  { image: "alexandre.png", message: "Je suis malade en voiture ;(" },
+  { image: "anthony.png", message: "Je veux faire pipi !!" },
+  { image: "arnaud.png", message: "Y a Matthieu qui m'embête." },
+  { image: "florian.jpg", message: "Zzzzzzz" },
+  { image: "francois.jpg", message: "Un peu de calme derrière" },
+  { image: "gildas.jpg", message: "J'ai des crampes." },
+  { image: "guillaume.png", message: "C'est trop long." },
+  { image: "jeremie.jpg", message: "Je revends mon sandwich." },
+  { image: "jibe.png", message: "On va ou ?" },
+  { image: "julio.jpg", message: "Quelqu'un à de quoi manger ?" },
+  { image: "karen.jpg", message: "J'ai trop trop hâte <3 !!" },
 ];
 
 const getRandomInt = (max) => {
@@ -60,7 +60,8 @@ export default {
   data: function () {
     return {
       busRotate: 3,
-      avatar: "matthieu.jpg",
+      avatar: avatars[0].image,
+      message: avatars[0].message,
     };
   },
   mounted() {
@@ -80,7 +81,8 @@ export default {
     },
     changing() {
       const choice = getRandomInt(avatars.length);
-      this.avatar = avatars[choice];
+      this.avatar = avatars[choice].image;
+      this.message = avatars[choice].message;
       setTimeout(this.changing, this.changeSpeed);
     },
   },
