@@ -2744,9 +2744,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.4.84:
-  version "1.4.108"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.108.tgz#380b01ff68e958d2b9fdf4572e054020a506c568"
-  integrity sha512-/36KkMuL6+WTrodVlOjtHhH9Ro7BgRaQrh0bfKckwDtdRSjTBuZCOddeXxzK1PkwphoeTxGUFVT9xnmvQ7xEdw==
+  version "1.4.110"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.110.tgz#269208d7cf7e32123b1d87bf4e6e1fd9ac7ff51d"
+  integrity sha512-TvHZrkj9anfWkxgblHlNr4IMQdm2N6D0o8Wu1BDpSL/RKT4DHyUt/tvDFtApgZ+LGFL3U9EO4LRZ1eSlQ8xMYA==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -3952,9 +3952,10 @@ log-update@^2.3.0:
     cli-cursor "^2.0.0"
     wrap-ansi "^3.0.1"
 
-"lorrainjs@git+ssh://git@github.com:JulienMattiussi/lorrainjs.git":
+lorrainjs@^0.0.1:
   version "0.0.1"
-  resolved "git+ssh://git@github.com:JulienMattiussi/lorrainjs.git#e456f3f641cae4f09fb7d6dbb38c355a9744d943"
+  resolved "https://registry.yarnpkg.com/lorrainjs/-/lorrainjs-0.0.1.tgz#dda8f96eb85071af6cc5c66db59ce178608eac76"
+  integrity sha512-1SexmAJ0ykKl2GJOGYw9D2YNKZxCY4OHQJLO3cAw3j5HuknHI+LLqS46SRYCgLk97bLQFwLr5XPy2Cbtxl73Ag==
 
 lower-case@^2.0.2:
   version "2.0.2"
