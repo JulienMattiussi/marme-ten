@@ -10,49 +10,35 @@
 <script>
 import TitleMessage from "./components/TitleMessage.vue";
 import CountDown from "./components/CountDown.vue";
+import lorrainjs from "lorrainjs";
 
-function showGros(arg) {
-  const gros = " gros";
-  if (typeof arg === "object") {
-    const newObject = Object.assign({}, arg);
-    Object.keys(newObject).forEach((key) => {
-      newObject[key] = newObject[key] + gros;
-    });
-    return newObject;
-  }
-  return arg + gros;
-}
+console.log("lorrainjs");
 
-const regexCapital = /\b[A-Z][a-zA-Z]*\b/;
+const testA = "Michel est parti";
+const testB = "Jacky est revenu";
 
-function showLe(arg) {
-  const le = "le ";
-  if (typeof arg === "object") {
-    const newObject = Object.assign({}, arg);
-    Object.keys(newObject).forEach((key) => {
-      if (typeof newObject[key] === "string") {
-        newObject[key] = newObject[key].replace(regexCapital, `${le}$&`);
-      }
-    });
-    return newObject;
-  }
-  return arg.replace(regexCapital, `${le}$&`);
-}
+lorrainjs.originalLog("Sans changement :");
+console.log(testA);
+lorrainjs.originalLog("Traduction manuelle de chaine :");
+console.log(lorrainjs.translate(testA));
 
-var orig = console.log;
+lorrainjs.initLog();
+lorrainjs.initWarn({ le: true });
+lorrainjs.initError({ gros: true });
 
-console.log = function () {
-  var msgs = [];
+lorrainjs.originalLog("Traduction automatique :");
+console.log(testA);
+lorrainjs.originalWarn("Traduction automatique en warning :");
+console.warn(testB);
+lorrainjs.originalError("Traduction automatique en error :");
+console.error(testB);
 
-  while (arguments.length) {
-    const argument = [].shift.call(arguments);
-    msgs.push(showLe(showGros(argument)));
-  }
+lorrainjs.originalLog("Avec object :");
+console.log({ testA, testB });
 
-  orig.apply(console, msgs);
-};
+lorrainjs.originalLog("Avec array :");
+console.log([testA, testB]);
 
-//console.log("TUTU");
 export default {
   name: "App",
   components: {
