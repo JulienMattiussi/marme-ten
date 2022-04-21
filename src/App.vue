@@ -10,34 +10,6 @@
 <script>
 import TitleMessage from "./components/TitleMessage.vue";
 import CountDown from "./components/CountDown.vue";
-import lorrainjs from "lorrainjs";
-
-console.log("lorrainjs");
-
-const testA = "Michel est parti";
-const testB = "Jacky est revenu";
-
-lorrainjs.originalLog("Sans changement :");
-console.log(testA);
-lorrainjs.originalLog("Traduction manuelle de chaine :");
-console.log(lorrainjs.translate(testA));
-
-lorrainjs.initLog();
-lorrainjs.initWarn({ le: true });
-lorrainjs.initError({ gros: true });
-
-lorrainjs.originalLog("Traduction automatique :");
-console.log(testA);
-lorrainjs.originalWarn("Traduction automatique en warning :");
-console.warn(testB);
-lorrainjs.originalError("Traduction automatique en error :");
-console.error(testB);
-
-lorrainjs.originalLog("Avec object :");
-console.log({ testA, testB });
-
-lorrainjs.originalLog("Avec array :");
-console.log([testA, testB]);
 
 export default {
   name: "App",

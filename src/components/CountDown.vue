@@ -1,6 +1,7 @@
 <template>
   <div class="main">
     <div class="countdown">
+      <BeerImage :currentBeer="currentBeer" />
       <h3>Temps restant avant la fiesta :</h3>
       <table>
         <tr class="numbers">
@@ -47,11 +48,13 @@
 
 <script>
 import BusImage from "./BusImage.vue";
+import BeerImage from "./BeerImage.vue";
 
 export default {
   name: "CountDown",
   components: {
     BusImage,
+    BeerImage,
   },
   props: {
     startbus: {
@@ -71,6 +74,7 @@ export default {
     return {
       currentTime: null,
       currentPos: 0,
+      currentBeer: 0,
       maxPos: 600,
     };
   },
@@ -113,6 +117,7 @@ export default {
         this.currentTime = null;
         this.currentPos = 0;
       }
+      this.currentBeer = Math.floor((this.currentPos / this.maxPos) * 9);
     },
   },
 };
@@ -123,7 +128,7 @@ export default {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin: 40px 0 0;
+  margin: 10px 0 0;
 }
 
 .countdown {
