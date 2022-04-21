@@ -51,4 +51,10 @@ export default {
 img.beer {
   width: 60px;
 }
+
+@media (max-width: 1250px) {
+  img.beer {
+    width: 40px;
+  }
+}
 </style>

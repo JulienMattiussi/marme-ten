@@ -29,6 +29,13 @@ export default {
   color: #2c3e50;
   padding-top: 60px;
 }
+
+@media (max-width: 1250px) {
+  #app {
+    padding-top: 10px;
+  }
+}
+
 .back {
   width: calc(100% - 60px);
   margin: 30px;
