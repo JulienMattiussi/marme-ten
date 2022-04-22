@@ -1,5 +1,5 @@
 <template>
-  <div class="bus" :style="`margin-left: ${currentPos}px;`">
+  <div class="bus" :style="`margin-left: calc(${currentPos}% - 100px);`">
     <img alt="Bus" src="../assets/bus.png" />
     <div class="people">
       <img class="avatar" alt="Avatar" :src="getImgUrl(avatar)" />

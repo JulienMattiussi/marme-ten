@@ -35,8 +35,8 @@
           <td class="table-margin"></td>
         </tr>
         <tr>
-          <td colspan="6">
-            <BusImage :currentPos="currentPos" />
+          <td class="road-td" colspan="6">
+            <BusImage :currentPos="currentPos" class="bus" />
             <img class="road" alt="Road" src="../assets/road.jpg" />
             <img class="mountain" alt="Mountain" src="../assets/mountain.png" />
           </td>
@@ -75,7 +75,7 @@ export default {
       currentTime: null,
       currentPos: 0,
       currentBeer: 0,
-      maxPos: 600,
+      maxPos: 100,
     };
   },
   mounted() {
@@ -164,10 +164,18 @@ export default {
   line-height: 100px;
 }
 
+.road-td {
+  position: relative;
+}
+
 img.road {
   margin-top: 50px;
   height: 50px;
   width: 100%;
+}
+
+.bus {
+  left: 0;
 }
 
 @media (max-width: 1250px) {
