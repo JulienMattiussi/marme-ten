@@ -3,7 +3,7 @@
   <div class="content">
     <img alt="Marmelab logo" src="./assets/logo-green.png" />
     <TitleMessage msg="En mai, on fait ce qui nous plait !" />
-    <CountDown deadline="2022-05-10T15:30:00.000Z" />
+    <CountDown deadline="2022-05-11T15:30:00.000Z" />
   </div>
 </template>
 
