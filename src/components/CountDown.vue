@@ -35,10 +35,10 @@
           <td class="table-margin"></td>
         </tr>
         <tr>
-          <td class="road-td" colspan="6">
-            <BusImage :currentPos="currentPos" class="bus" />
-            <img class="road" alt="Road" src="../assets/road.jpg" />
-            <img class="mountain" alt="Mountain" src="../assets/mountain.png" />
+          <td class="sea-td" colspan="6">
+            <BoatImage :currentPos="currentPos" class="boat" />
+            <img class="sea" alt="Sea" src="../assets/sea.png" />
+            <img class="island" alt="Island" src="../assets/island.png" />
           </td>
         </tr>
       </table>
@@ -47,17 +47,17 @@
 </template>
 
 <script>
-import BusImage from "./BusImage.vue";
+import BoatImage from "./BoatImage.vue";
 import BeerImage from "./BeerImage.vue";
 
 export default {
   name: "CountDown",
   components: {
-    BusImage,
+    BoatImage,
     BeerImage,
   },
   props: {
-    startbus: {
+    startboat: {
       type: Number,
       default: 2600000000,
     },
@@ -105,12 +105,12 @@ export default {
     countdown() {
       this.currentTime = Date.parse(this.deadline) - Date.parse(new Date());
       this.currentPos =
-        this.currentTime > this.startbus
-          ? 0
+        this.currentTime > this.startboat
+          ? 10
           : this.currentTime <= 0 || !this.currentTime
           ? this.maxPos
           : this.maxPos -
-            Math.floor((this.currentTime / this.startbus) * this.maxPos);
+            Math.floor((this.currentTime / this.startboat) * this.maxPos);
       if (this.currentTime > 0) {
         setTimeout(this.countdown, this.speed);
       } else {
@@ -164,36 +164,36 @@ export default {
   line-height: 100px;
 }
 
-.road-td {
+.sea-td {
   position: relative;
 }
 
-img.road {
+img.sea {
   margin-top: 50px;
   height: 50px;
   width: 100%;
 }
 
-.bus {
+.boat {
   left: 0;
 }
 
 @media (max-width: 1250px) {
-  img.road {
+  img.sea {
     margin-left: -10px;
     width: calc(100% + 20px);
   }
 }
 
-img.mountain {
+img.island {
   height: 130px;
-  margin-top: -5px;
+  margin-top: -20px;
   margin-left: -80px;
   position: absolute;
 }
 
 @media (max-width: 1250px) {
-  img.mountain {
+  img.island {
     right: 0;
     margin-top: -110px;
     margin-left: unset;

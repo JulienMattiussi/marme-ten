@@ -1,4 +1,4 @@
-# mai-rmelab
+# marme-ten
 
 ## Project setup
 ```

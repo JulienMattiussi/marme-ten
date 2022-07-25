@@ -1,6 +1,6 @@
 <template>
-  <div class="bus" :style="`margin-left: calc(${currentPos}% - 100px);`">
-    <img alt="Bus" src="../assets/bus.png" />
+  <div class="boat" :style="`margin-left: calc(${currentPos}% - 100px);`">
+    <img alt="Boat" src="../assets/boat.png" />
     <div class="people">
       <img class="avatar" alt="Avatar" :src="getImgUrl(avatar)" />
       <span>{{ message }}</span>
@@ -30,7 +30,7 @@ const getRandomInt = (max) => {
 };
 
 export default {
-  name: "BusImage",
+  name: "BoatImage",
   props: {
     currentPos: {
       type: Number,
@@ -43,7 +43,7 @@ export default {
   },
   data: function () {
     return {
-      busRotate: 3,
+      boatRotate: 3,
       avatar: avatars[0].image,
       message: avatars[0].message,
     };
@@ -67,14 +67,14 @@ export default {
 </script>
 
 <style scoped>
-.bus {
+.boat {
   position: absolute;
-  margin-top: 50px;
+  margin-top: -25px;
   height: 50px;
   width: 100px;
 }
 
-.bus > img {
+.boat > img {
   width: 100%;
   animation-iteration-count: infinite;
   animation-duration: 0.5s;
@@ -99,11 +99,11 @@ export default {
   }
 }
 
-.bus > .people {
+.boat > .people {
   display: flex;
 }
 
-.bus:hover > .people {
+.boat:hover > .people {
   display: flex;
 }
 

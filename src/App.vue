@@ -1,9 +1,9 @@
 <template>
-  <img class="back" alt="Vosges" src="./assets/back-light.jpeg" />
+  <img class="back" alt="Ocean" src="./assets/back-light.jpg" />
   <div class="content">
     <img alt="Marmelab logo" src="./assets/logo-green.png" />
-    <TitleMessage msg="En mai, on fait ce qui nous plait !" />
-    <CountDown deadline="2022-05-11T15:30:00.000Z" />
+    <TitleMessage msg="En janvier, c'est LES 10 ANS !!!" />
+    <CountDown deadline="2023-01-29T00:00:00.000Z" />
   </div>
 </template>
 
