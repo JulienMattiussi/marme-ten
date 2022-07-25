@@ -11,7 +11,7 @@
 <script>
 const avatars = [
   { image: "matthieu.jpg", message: "C'est quand qu'on arrive ?!" },
-  { image: "alexandre.png", message: "Je suis malade en voiture ;(" },
+  { image: "alexandre.png", message: "J'ai le mal de mer ;(" },
   { image: "anthony.png", message: "Je veux aller faire pipi !!" },
   { image: "arnaud.png", message: "Y a Matthieu qui m'embête." },
   { image: "florian.jpg", message: "Zzzzzzz" },
@@ -23,6 +23,10 @@ const avatars = [
   { image: "julio.jpg", message: "Quelqu'un a de quoi manger ?" },
   { image: "karen.jpg", message: "J'ai trop trop hâte <3 !!" },
   { image: "caroline.png", message: "zu Hilfe !!" },
+  { image: "guiom.png", message: "Vimenquonrive" },
+  { image: "cindy.png", message: "Je vais reprendre une bière" },
+  { image: "thibault.png", message: "Finalement je veux plus venir" },
+  { image: "antoine.png", message: "Tiens un iceberg devant" },
 ];
 
 const getRandomInt = (max) => {
