@@ -3,7 +3,7 @@
   <div class="content">
     <img alt="Marmelab logo" src="./assets/logo-green.png" />
     <TitleMessage msg="En janvier, c'est LES 10 ANS !!!" />
-    <CountDown deadline="2023-01-29T00:00:00.000Z" />
+    <CountDown deadline="2023-01-19T19:00:00.000Z" />
   </div>
 </template>
 
