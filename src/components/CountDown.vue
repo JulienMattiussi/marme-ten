@@ -204,13 +204,13 @@ img.goal {
 
 @media (max-width: 1250px) {
   img.start {
-    left: 0;
+    left: -20px;
     margin-top: -7px;
     margin-left: unset;
   }
 
   img.goal {
-    right: 0;
+    right: 20px;
     margin-top: -110px;
     margin-left: unset;
     margin-right: -50px;
