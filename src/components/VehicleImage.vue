@@ -1,6 +1,9 @@
 <template>
-  <div class="boat" :style="`margin-left: calc(${currentPos}% - 100px);`">
-    <img alt="Boat" src="../assets/boat.png" />
+  <div class="vehicle" :style="`margin-left: calc(${currentPos}% - 100px);`">
+    <img alt="Vehicle" class="A" src="../assets/bikes-group-A.png" />
+    <img alt="Vehicle" class="C" src="../assets/bikes-group-C.png" />
+    <img alt="Vehicle" class="D" src="../assets/bikes-group-D.png" />
+    <img alt="Vehicle" class="B" src="../assets/bikes-group-B.png" />
     <div class="people">
       <img class="avatar" alt="Avatar" :src="getImgUrl(avatar)" />
       <span>{{ message }}</span>
@@ -11,13 +14,13 @@
 <script>
 const avatars = [
   { image: "matthieu.jpg", message: "C'est quand qu'on arrive ?!" },
-  { image: "alexandre.png", message: "J'ai le mal de mer ;(" },
+  { image: "alexandre.png", message: "On fait quoi ?" },
   { image: "anthony.png", message: "Je veux aller faire pipi !!" },
-  { image: "arnaud.png", message: "Y a Matthieu qui m'embête." },
+  { image: "arnaud.png", message: "Y a Julio qui m'embête." },
   { image: "florian.jpg", message: "Zzzzzzz" },
   { image: "francois.jpg", message: "Un peu de calme derrière" },
   { image: "gildas.jpg", message: "J'ai des crampes." },
-  { image: "guillaume.png", message: "C'est trop long." },
+  { image: "guillaume.png", message: "On sera combien ?" },
   { image: "jeremie.jpg", message: "Je revends mon sandwich." },
   { image: "jibe.png", message: "On va où ?" },
   { image: "julio.jpg", message: "Quelqu'un a de quoi manger ?" },
@@ -25,8 +28,9 @@ const avatars = [
   { image: "caroline.png", message: "zu Hilfe !!" },
   { image: "guiom.png", message: "Vimenquonrive" },
   { image: "cindy.png", message: "Je vais reprendre une bière" },
-  { image: "thibault.png", message: "Finalement je veux plus venir" },
-  { image: "antoine.png", message: "Tiens un iceberg devant" },
+  { image: "thibault.png", message: "Y aura qui ?" },
+  { image: "antoine.png", message: "Vous êtes sûrs que j'ai le droit de venir ?" },
+  { image: "benoit.png", message: "Vous êtes sûr qu'on va dans le bon sens ?" },
 ];
 
 const getRandomInt = (max) => {
@@ -34,7 +38,7 @@ const getRandomInt = (max) => {
 };
 
 export default {
-  name: "BoatImage",
+  name: "VehicleImage",
   props: {
     currentPos: {
       type: Number,
@@ -47,7 +51,7 @@ export default {
   },
   data: function () {
     return {
-      boatRotate: 3,
+      vehicleRotate: 3,
       avatar: avatars[0].image,
       message: avatars[0].message,
     };
@@ -71,21 +75,39 @@ export default {
 </script>
 
 <style scoped>
-.boat {
+.vehicle {
   position: absolute;
   margin-top: -25px;
   height: 50px;
   width: 100px;
 }
 
-.boat > img {
+.vehicle > img {
   width: 100%;
   animation-iteration-count: infinite;
   animation-duration: 0.5s;
-  animation-name: oscillating;
+  animation-name: oscillatingA;
 }
 
-@keyframes oscillating {
+.vehicle > img.B {
+  position: absolute;
+  animation-name: oscillatingB;
+  left: 0;
+}
+
+.vehicle > img.C {
+  position: absolute;
+  animation-name: oscillatingC;
+  left: 0;
+}
+
+.vehicle > img.D {
+  position: absolute;
+  animation-name: oscillatingA;
+  left: 0;
+}
+
+@keyframes oscillatingA {
   0% {
     transform: rotate(3deg);
   }
@@ -103,11 +125,47 @@ export default {
   }
 }
 
-.boat > .people {
+@keyframes oscillatingB {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes oscillatingC {
+  0% {
+    transform: rotate(-3deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-3deg);
+  }
+}
+
+.vehicle > .people {
   display: flex;
 }
 
-.boat:hover > .people {
+.vehicle:hover > .people {
   display: flex;
 }
 
@@ -134,7 +192,7 @@ export default {
   border-color: transparent transparent white transparent;
   position: absolute;
   left: 45px;
-  top: 45px;
+  top: 75px;
 }
 
 .avatar {

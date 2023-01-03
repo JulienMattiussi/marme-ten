@@ -35,10 +35,11 @@
           <td class="table-margin"></td>
         </tr>
         <tr>
-          <td class="sea-td" colspan="6">
-            <BoatImage :currentPos="currentPos" class="boat" />
-            <img class="sea" alt="Sea" src="../assets/sea.png" />
-            <img class="island" alt="Island" src="../assets/island.png" />
+          <td class="track-td" colspan="6">
+            <img class="start" alt="Start" src="../assets/stan-door-crop-revert.png" />
+            <VehicleImage :currentPos="currentPos" class="vehicle" />
+            <img class="track" alt="Track" src="../assets/road.jpg" />
+            <img class="goal" alt="Goal" src="../assets/stan-door-crop.png" />
           </td>
         </tr>
       </table>
@@ -47,17 +48,17 @@
 </template>
 
 <script>
-import BoatImage from "./BoatImage.vue";
+import VehicleImage from "./VehicleImage.vue";
 import BeerImage from "./BeerImage.vue";
 
 export default {
   name: "CountDown",
   components: {
-    BoatImage,
+    VehicleImage,
     BeerImage,
   },
   props: {
-    startboat: {
+    startVehicle: {
       type: Number,
       default: 2600000000,
     },
@@ -105,12 +106,12 @@ export default {
     countdown() {
       this.currentTime = Date.parse(this.deadline) - Date.parse(new Date());
       this.currentPos =
-        this.currentTime > this.startboat
+        this.currentTime > this.startVehicle
           ? 10
           : this.currentTime <= 0 || !this.currentTime
           ? this.maxPos
           : this.maxPos -
-            Math.floor((this.currentTime / this.startboat) * this.maxPos);
+            Math.floor((this.currentTime / this.startVehicle) * this.maxPos);
       if (this.currentTime > 0) {
         setTimeout(this.countdown, this.speed);
       } else {
@@ -164,28 +165,37 @@ export default {
   line-height: 100px;
 }
 
-.sea-td {
+.track-td {
   position: relative;
 }
 
-img.sea {
+img.track {
   margin-top: 50px;
   height: 50px;
   width: 100%;
 }
 
-.boat {
+.vehicle {
   left: 0;
+  margin-top: 15px;
+  width: 200px;
 }
 
 @media (max-width: 1250px) {
-  img.sea {
+  img.track {
     margin-left: -10px;
     width: calc(100% + 20px);
   }
 }
 
-img.island {
+img.start {
+  height: 130px;
+  margin-top: -20px;
+  margin-left: -10px;
+  position: absolute;
+}
+
+img.goal {
   height: 130px;
   margin-top: -20px;
   margin-left: -80px;
@@ -193,7 +203,13 @@ img.island {
 }
 
 @media (max-width: 1250px) {
-  img.island {
+  img.start {
+    right: 0;
+    margin-top: -110px;
+    margin-left: -10px;
+  }
+
+  img.goal {
     right: 0;
     margin-top: -110px;
     margin-left: unset;
