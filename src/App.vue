@@ -1,7 +1,7 @@
 <template>
   <img class="back" alt="Ocean" src="./assets/back-light.jpg" />
   <div class="content">
-    <img alt="Marmelab logo" src="./assets/logo.png" />
+    <img alt="Marmelab logo" class="logo" src="./assets/logo.png" />
     <TitleMessage msg="En janvier, c'est LES 10 ANS !!!" />
     <CountDown deadline="2023-01-19T19:00:00.000Z" />
   </div>
@@ -51,6 +51,10 @@ export default {
     height: calc(100% + 20px);
     width: unset;
   }
+}
+
+img.logo {
+    width: 148px;
 }
 
 .content {

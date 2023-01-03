@@ -204,9 +204,9 @@ img.goal {
 
 @media (max-width: 1250px) {
   img.start {
-    right: 0;
-    margin-top: -110px;
-    margin-left: -10px;
+    left: 0;
+    margin-top: -7px;
+    margin-left: unset;
   }
 
   img.goal {
